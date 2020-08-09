@@ -1,4 +1,4 @@
-﻿namespace ConfigurationManager
+﻿namespace ConfigurationManager.Models
 {
     public class Configuration
         {
