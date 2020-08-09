@@ -20,4 +20,13 @@
     <ProjectReference Include="..\ConfigurationManager\ConfigurationManager.csproj" />
   </ItemGroup>
 
+	<ItemGroup>
+		<None Update="TestData\Empty_Config.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="TestData\Base_Config.txt">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
 </Project>

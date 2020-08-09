@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationManager", "Con
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConfigurationManager.UnitTests", "ConfigurationManager.UnitTests\ConfigurationManager.UnitTests.csproj", "{78E8CFAC-5C89-424B-AB71-0B5FF319B034}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConfigurationManager.Models", "ConfigurationManager.Models\ConfigurationManager.Models.csproj", "{3AED6FFB-D1FE-4E23-B189-90A35ABCF55F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{78E8CFAC-5C89-424B-AB71-0B5FF319B034}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{78E8CFAC-5C89-424B-AB71-0B5FF319B034}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{78E8CFAC-5C89-424B-AB71-0B5FF319B034}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AED6FFB-D1FE-4E23-B189-90A35ABCF55F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AED6FFB-D1FE-4E23-B189-90A35ABCF55F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AED6FFB-D1FE-4E23-B189-90A35ABCF55F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AED6FFB-D1FE-4E23-B189-90A35ABCF55F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

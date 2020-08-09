@@ -1,9 +1,10 @@
-﻿namespace ConfigurationManager
+﻿using ConfigurationManager.Models;
+
+namespace ConfigurationManager
     {
     public interface ILayerManager
         {
-        void AddLayer(ILayer configurationsList);
+        void AddLayer(ILayer configurationsLayer);
         Configuration GetConfigurationById(string configurationId);
-        ILayer GetLayerByName(string layerName);
         }
     }
