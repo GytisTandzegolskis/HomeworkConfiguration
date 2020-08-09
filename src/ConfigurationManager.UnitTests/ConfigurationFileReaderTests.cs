@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using ConfigurationManager.Models;
 using FluentAssertions;
 using Xunit;
 
@@ -19,9 +20,8 @@ namespace ConfigurationManager.UnitTests
                 };
 
             //act
-            //TODO: remove hardcoded path
             var configurationList = configurationFileReader.ReadFile (
-                "D:\\Development\\Test\\HomeworkConfiguration\\src\\ConfigurationManager.UnitTests\\Base_Config.txt");
+                "TestData\\Base_Config.txt");
 
             //assert
             configurationList.Should ().BeEquivalentTo (expectedList);
@@ -34,10 +34,9 @@ namespace ConfigurationManager.UnitTests
             var configurationFileReader = new ConfigurationFileReader ();
 
             //act
-            //TODO: remove hardcoded path
             Action readFile = () =>
                 configurationFileReader.ReadFile (
-                    "D:\\Development\\Test\\HomeworkConfiguration\\src\\ConfigurationManager.UnitTests\\Empty_Config.txt");
+                    "TestData\\Empty_Config.txt");
 
             //assert
             readFile.Should ().Throw<ArgumentNullException> ();
