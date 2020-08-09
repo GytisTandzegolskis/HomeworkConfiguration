@@ -1,0 +1,5 @@
+Base System Configuration - Containing standard/default configuration parameters.
+
+=== Section: Data Generation ===
+- Order Profile:
+ordersPerHour:		6000		//Number of Orders per Hour
