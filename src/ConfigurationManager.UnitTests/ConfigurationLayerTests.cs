@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using ConfigurationManager.Models;
 using FluentAssertions;
 using Xunit;
 
@@ -17,7 +18,7 @@ namespace ConfigurationManager.UnitTests
                 new Configuration {ConfigurationId = "Layer2", ConfigurationValue = "2"}
                 };
 
-            var configurationLayer = new ConfigurationLayer ("TestLayer", configurationList);
+            var configurationLayer = new ConfigurationLayer (configurationList);
 
             //act
             var foundConfiguration =
@@ -39,7 +40,7 @@ namespace ConfigurationManager.UnitTests
                 new Configuration {ConfigurationId = "Layer2", ConfigurationValue = "2"}
                 };
 
-            var configurationLayer = new ConfigurationLayer ("TestLayer", configurationList);
+            var configurationLayer = new ConfigurationLayer (configurationList);
 
             //act
             var foundConfiguration =
@@ -48,20 +49,6 @@ namespace ConfigurationManager.UnitTests
             //assert
             foundConfiguration.Should ().BeFalse ();
             configuration.Should ().BeNull ();
-            }
-
-        [Fact]
-        public void GetLayerName_WhenMethodCalled_ReturnsExpectedLayerName()
-            {
-            //arrange
-            var expectedLayerName = "TestLayer";
-            var configurationLayer = new ConfigurationLayer(expectedLayerName, new List<Configuration>());
-
-            //act
-            var layerName = configurationLayer.GetLayerName ();
-            
-            //assert
-            layerName.Should ().Be (expectedLayerName);
             }
         }
     }

@@ -1,16 +1,19 @@
 ﻿using System.Collections.Generic;
+using ConfigurationManager.Models;
 
 namespace ConfigurationManager
     {
+    /// <summary>
+    ///     Class for managing layer level information
+    /// </summary>
     public class ConfigurationLayer : ILayer
         {
         private readonly IEnumerable<Configuration> m_configurationObjects;
-        private readonly string m_layerName;
 
-        public ConfigurationLayer(string layerName, IEnumerable<Configuration> configurationObjects)
+        /// <param name="configurationObjects"></param>
+        public ConfigurationLayer(IEnumerable<Configuration> configurationObjects)
             {
             m_configurationObjects = configurationObjects;
-            m_layerName = layerName;
             }
 
         public bool TryGetConfigurationById(string configurationId, out Configuration configuration)
@@ -21,13 +24,14 @@ namespace ConfigurationManager
                     {
                     configuration = configurationObject;
                     return true;
-                }
+                    }
+
             return false;
             }
 
-        public string GetLayerName()
+        public IEnumerable<Configuration> GetAllConfigurations()
             {
-            return m_layerName;
+            return m_configurationObjects;
             }
         }
     }
