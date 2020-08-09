@@ -2,15 +2,21 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
+using ConfigurationManager.Models;
 
 namespace ConfigurationManager
     {
-    public class ConfigurationFileReader
+    public class ConfigurationFileReader : IFileReader
         {
+        /// <summary>
+        ///     Reads the presented file and returns list of Configurations
+        /// </summary>
+        /// <param name="filePath">Path to the configuration file</param>
+        /// <returns></returns>
         public IEnumerable<Configuration> ReadFile(string filePath)
             {
             if (!File.Exists (filePath))
-                throw new FileNotFoundException ();
+                throw new FileNotFoundException ("File not found");
 
             var configurationList = new List<Configuration> ();
             using (var file = new StreamReader (filePath))
