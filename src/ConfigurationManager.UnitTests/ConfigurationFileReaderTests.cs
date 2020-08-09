@@ -15,7 +15,7 @@ namespace ConfigurationManager.UnitTests
             var configurationFileReader = new ConfigurationFileReader ();
             var expectedList = new List<Configuration>
                 {
-                new Configuration {ConfigurationId = "ordersPerHour:", ConfigurationValue = "6000"}
+                new Configuration {ConfigurationId = "ordersPerHour", ConfigurationValue = "6000"}
                 };
 
             //act
@@ -28,12 +28,13 @@ namespace ConfigurationManager.UnitTests
             }
 
         [Fact]
-        public void ReadFile_WhenFileIsEmpty_ThrowsException()
+        public void ReadFile_WhenFileIsEmpty_ThrowsArgumentNullException()
             {
             //arrange
             var configurationFileReader = new ConfigurationFileReader ();
 
             //act
+            //TODO: remove hardcoded path
             Action readFile = () =>
                 configurationFileReader.ReadFile (
                     "D:\\Development\\Test\\HomeworkConfiguration\\src\\ConfigurationManager.UnitTests\\Empty_Config.txt");
@@ -43,7 +44,7 @@ namespace ConfigurationManager.UnitTests
             }
 
         [Fact]
-        public void ReadFile_WhenNonExistingFilePath_ThrowsException()
+        public void ReadFile_WhenNonExistingFilePath_ThrowsFileNotFoundException()
             {
             //arrange
             var configurationFileReader = new ConfigurationFileReader ();

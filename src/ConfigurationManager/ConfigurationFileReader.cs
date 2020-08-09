@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace ConfigurationManager
@@ -16,12 +15,7 @@ namespace ConfigurationManager
             var configurationList = new List<Configuration> ();
             using (var file = new StreamReader (filePath))
                 {
-                string line;
-                while ((line = file.ReadLine ()) != null)
-                    {
-                    if (TryGetConfiguration (line, out var configuration))
-                        configurationList.Add (configuration);
-                    }
+                ReadLines (file, configurationList);
                 }
 
             if (configurationList.Count == 0)
@@ -30,14 +24,24 @@ namespace ConfigurationManager
             return configurationList;
             }
 
+        private void ReadLines(StreamReader file, List<Configuration> configurationList)
+            {
+            string line;
+            while ((line = file.ReadLine ()) != null)
+                if (TryGetConfiguration (line, out var configuration))
+                    configurationList.Add (configuration);
+            }
+
         private bool TryGetConfiguration(string line, out Configuration configuration)
             {
-            var splitLine = Regex.Split(line, @"\s+");
+            var splitLine = Regex.Split (line, @"\s+");
 
             if (Regex.IsMatch (splitLine[0], @"^[a-z|A-Z|0-9]+[:]+$") &&
                 Regex.IsMatch (splitLine[1], "^[a-z|A-Z|0-9|:]+$"))
                 {
-                configuration = new Configuration { ConfigurationId = splitLine[0], ConfigurationValue = splitLine[1] };
+                configuration = new Configuration
+                        {ConfigurationId = splitLine[0].TrimEnd (':'), ConfigurationValue = splitLine[1]};
+
                 return true;
                 }
 
