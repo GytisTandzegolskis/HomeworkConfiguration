@@ -55,7 +55,7 @@ namespace ConfigurationManager
             }
 
         /// <summary>
-        /// Gets the configurations of the requested data model
+        ///     Gets the configurations of the requested data model
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="dataModel"></param>
@@ -78,6 +78,10 @@ namespace ConfigurationManager
                 catch (FormatException e)
                     {
                     accumulatedExceptions.Add (new FormatException ($"{property.Name}: {e.Message}"));
+                    }
+                catch (InvalidCastException e)
+                    {
+                    accumulatedExceptions.Add (new InvalidCastException ($"{property.Name}: {e.Message}"));
                     }
 
             if (accumulatedExceptions.Count != 0)

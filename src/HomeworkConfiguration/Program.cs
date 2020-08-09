@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Runtime.Versioning;
 using ConfigurationManager;
 using ConfigurationManager.Models;
 
@@ -35,6 +34,7 @@ namespace HomeworkConfiguration
                             foreach (var configurationValue in layerManager.GetAllConfigurationValues ())
                                 Console.WriteLine (
                                     $"{configurationValue.ConfigurationId}: {configurationValue.ConfigurationValue}");
+
                             break;
 
                         case "correct":
