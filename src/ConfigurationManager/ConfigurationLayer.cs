@@ -10,12 +10,17 @@ namespace ConfigurationManager
         {
         private readonly IEnumerable<Configuration> m_configurationObjects;
 
-        /// <param name="configurationObjects"></param>
         public ConfigurationLayer(IEnumerable<Configuration> configurationObjects)
             {
             m_configurationObjects = configurationObjects;
             }
 
+        /// <summary>
+        ///     Tries to get configuration from layer, if available, returns through out parameter and returns true
+        /// </summary>
+        /// <param name="configurationId"></param>
+        /// <param name="configuration"></param>
+        /// <returns></returns>
         public bool TryGetConfigurationById(string configurationId, out Configuration configuration)
             {
             configuration = null;
